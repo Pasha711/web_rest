@@ -1,139 +1,140 @@
 
 # El Alambique
-### Магазин оригінальної текіли й крафтового мескаля
+### Original tequila and craft mezcal shop
 
-_Продаж оригінальных сортів текіли й крафтового мескалю від виробника,
-прямі поставки, власний імпорт без посередників, замовлення рідкісних сортів_
+_Sale of original varieties of tequila and craft mezcal from the manufacturer, direct deliveries, 
+own import without intermediaries, ordering rare varieties_
 
 
-## Ендпоінти
+## Endpoints
 
-**_Отримати список категорій товарів_**\
-**GET /category**\  
-_no request body\  
-response status, response body(якщо успішно)_
 
-**_Отримати список усіх товарів_**\
+**_Get a list of product categories_**\
+**GET /category**\
+_no request body\
+response status, response body(if successful)_
+
+**_Get a list of all products_**\
 **GET /products**\
 _no request body\
-response status, response body(якщо успішно)_
+response status, response body(if successful)_
 
-**_Отримати опис товару за id_**\
+**_Get product description by id_**\
 **GET /products/id/1**\
 _no request body\
-response status, response body(якщо успішно)_
+response status, response body(if successful)_
 
-**_Отримати список товарів у категорії за id_**\
+**_Get a list of products in a category by id_**\
 **GET /products/cat/1**\
 _no request body\
-response status, response body(якщо успішно)_
+response status, response body(if successful)_
 
-**_Отримати список виробників_**\
+**_Get a list of manufacturers_**\
 **GET /manufacturers**\
-_no request body\
-response status, response body(якщо успішно)_
+_no request body\Create a product
+response status, response body(if successful)_
 
-**_Отримати список товарів виробника за id_**\
+**_Get a list of manufacturer's products by id_**\
 **GET /products/man/1**\
 _no request body\
-response status, response body(якщо успішно)_
+response status, response body(if successful)_
 
 **_Створити товар_**\
 **POST /products**\
-_Request Body(опис товару)\
-response status, response body-id товару(якщо успішно)_
+_Request Body(product description)\
+response status, response body-id товару(if successful)_
 
-**_Створити категорію_**\
+**_Create a category_**\
 **POST /category**\
-_Request Body(опис категорії)\
-response status, response body-id товару(якщо успішно)_
+_Request Body(category description)\
+response status, response body-id товару(if successful)_
 
-**_Створити опис виробника_**\
+**_Create a manufacturer description_**\
 **POST /manufacturers**\
-_Request Body(опис виробника)\
-response status, response body-id товару(якщо успішно)_
+_Request Body(manufacturer description)\
+response status, response body-id товару(if successful)_
 
-**_Оновити товар за id_**\
+**_Update product by id_**\
 **PUT /products/id/1**\
-_Request Body(опис товару)\
-response status, response body(якщо успішно)_
+_Request Body(product description)\
+response status, response body(if successful)_
 
-**_Оновити опис категорії за id_**\
+**_Update category description by id_**\
 **PUT /category/id/1**\
-_Request Body(опис категорії)\
-response status, response body(якщо успішно)_
+_Request Body(category description)\
+response status, response body(if successful)_
 
-**_Оновити опис виробника за id_**\
+**_Update manufacturer description by id_**\
 **PUT /manufacturers/id/1**\
-_Request Body(опис виробника)\
-response status, response body(якщо успішно)_
+_Request Body(manufacturer description)\
+response status, response body(if successful)_
 
-**_Видалити товар за id_**\
+**_Delete product by id_**\
 **DELETE /products/id/1**\
 _no request body\
 response status_
 
-**_Видалити категорію за id_**\
+**_Delete category by id_**\
 **DELETE /category/id/1**\
 _no request body\
 response status_
 
-**_Видалити виробника за id_**\
+**_Delete manufacturer by id_**\
 **DELETE /manufacturers/id/1**\
 _no request body\
 response status_
 
-Response status - Успішно або Помилка
-Вміст Request Body залежить від ендпоінту
-Вміст Response body залежить від ендпоінту
+Response status - Success or Error
+The content of the Request Body depends on the endpoint.
+Response body content depends on the endpoint
 
-Попередньо - видалення категорій та виробників, що мають зв'язок з товарами не дозволяється
-Видалення продуктів, що фігурують хоч у одному продажу(ордері)теж не дозволяється.
+Deleting categories and manufacturers that are related to products is not allowed.
+Deleting products that appear in at least one sale (order) is also not allowed.
 
-## Опис структури бази данних
-_(таблиці можуть додаватися у процесі розробки):_
+## Description of the database structure
+_(additional tables can be added as needed during the development process):_
 
-**Таблиця Products**\
-**id**-число\
-**code**-строка-Код продукту\
-**name**-строка-Назва продукту\
-**category**-FK Category-Посилання на категорію\
-**manufacturer**-FK Manufacturers-Посилання на виробника\
-**short_descr**-строка-Короткий опис\
-**description**-строка-Повний опис
+**Table Products**\
+**id**-number\
+**code**-string-Product code\
+**name**-string-Product name\
+**category**-FK Category-Link to Category\
+**manufacturer**-FK Manufacturers-Link to Manufacturers\
+**short_descr**-string-Short description\
+**description**-string-Full description
 
-**Таблиця Category**\
-**id**-число\
-**code**-строка-Код категорії\
-**name**-строка-Назва категорії\
-**description**-строка-Опис категорії
-
-
-**Таблиця Manufacturers**\
-**id**-число\
-**code**-строка-Код виробника\
-**name**-строка-Назва виробника\
-**description**-строка-Опис виробника
+**Table Category**\
+**id**-number\
+**code**-string-Category code\
+**name**-string-Назва категорії\
+**description**-string-Category description
 
 
-**Таблиця Clients**\
-**id**-число\
-**name**-строка-Нікнейм\
-**phone**-строка-Телефон\
-**email**-строка-Пошта
+**Table Manufacturers**\
+**id**-number\
+**code**-string-Manufacturer code\
+**name**-string-Manufacturer name\
+**description**-string-Manufacturer description
 
-**Таблиця Orders**\
-**id**-число\
-**number**-строка-Номер ордеру\
-**odate**-дата-Дата продажу
 
-**Таблиця OrderProducts**\
-**FK Orders**-Посилання на Orders\
-**prod_id**-FK Products-Посилання на Products
+**Table Clients**\
+**id**-number\
+**name**-string-Nickname\
+**phone**-string-Phone\
+**email**-string-E-mail
 
-**Таблиця ClientOrders**\
-**client_id**-FK Clients-Посилання на Clients\
-**order_id**-FK Orders-Посилання на Orders
+**Table Orders**\
+**id**-number\
+**number**-string-Order number\
+**odate**-date-Sale date
+
+**Table OrderProducts**\
+**FK Orders**-Link to Orders\
+**prod_id**-FK Products-Link to Products
+
+**Table ClientOrders**\
+**client_id**-FK Clients-Link to Clients\
+**order_id**-FK Orders-Link to Orders
 
 
 
