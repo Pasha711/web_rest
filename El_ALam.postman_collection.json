@@ -41,7 +41,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"code\": \"TEQ-BL\",\r\n    \"name\": \"Tequila Blanco\",\r\n    \"description\": \"@>7@0G=0O, =52K45@60==0O B5:8;0.\"\r\n}",
+					"raw": "{\r\n    \"code\": \"TEQ-BL\",\r\n    \"name\": \"Tequila Blanco\",\r\n    \"description\": \"@>7@0G=0O, =52K45@60==0O B5:8;0.\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
