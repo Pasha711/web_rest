@@ -1,11 +1,101 @@
 {
 	"info": {
-		"_postman_id": "96a12286-10c4-4c63-9f71-91032166db11",
+		"_postman_id": "7e4c85f9-8b6c-455d-87dd-4f1278cc764d",
 		"name": "El_ALam",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "3225710"
+		"_exporter_id": "45197817"
 	},
 	"item": [
+		{
+			"name": "http://127.0.0.1:8000/category/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"code\": \"TEQ-Rpsd\",\r\n    \"name\": \"REPOSADO\",\r\n    \"description\": \"Tequila Reposado\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/category/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"category",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/manufacturers/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"code\" : \"ElTeq-Bl\",\r\n\"name\" : \"El Tequileno, Blanco\",\r\n\"category\" : \"3\",\r\n\"manufacturer\" : \"2\",\r\n\"short_descr\" : \"Tequila blanco simple\",\r\n\"description\" : \"70% Estate Grown Blue Agave - mellowed for 14 days in American Oak. A long-standing favorite that has won the hearts and minds of the people in the magical town of Tequila and the surrounding areas. This historical tequila is the foundation for any perfect cocktail.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/manufacturers/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"manufacturers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/products/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"code\" : \"ElTeq-Rp\",\r\n\"name\" : \"El Tequileno, Reposado\",\r\n\"category\" : \"3\",\r\n\"manufacturer\" : \"2\",\r\n\"short_descr\" : \"Tequila reposado simple\",\r\n\"description\" : \"100% Estate Grown Blue Agave - that spends 3 months in American Oak. Its full agave flavor can be enjoyed by itself or mixed in a cocktail of your choice.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/products/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "http://127.0.0.1:8000/products",
 			"request": {
@@ -15,15 +105,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/products",
-					"protocol": "http",
+					"raw": "{{baseURL}}/products",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{baseURL}}"
 					],
-					"port": "8000",
 					"path": [
 						"products"
 					]
@@ -37,17 +122,8 @@
 				"auth": {
 					"type": "noauth"
 				},
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"code\": \"TEQ-BL\",\r\n    \"name\": \"Tequila Blanco\",\r\n    \"description\": \"@>7@0G=0O, =52K45@60==0O B5:8;0.\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "http://127.0.0.1:8000/category/",
 					"protocol": "http",
@@ -72,17 +148,8 @@
 				"auth": {
 					"type": "noauth"
 				},
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\"code\" : \"Jalsc_001\",\r\n\"name\" : \"Jalisko Agavita\",\r\n\"description\" : \"Old manufacturer\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "http://127.0.0.1:8000/manufacturers/",
 					"protocol": "http",
@@ -102,24 +169,15 @@
 			"response": []
 		},
 		{
-			"name": "http://127.0.0.1:8000/products/",
+			"name": "http://127.0.0.1:8000/products/:id",
 			"request": {
 				"auth": {
 					"type": "noauth"
 				},
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\"code\" : \"TreeSOMB-Bl\",\r\n\"name\" : \"Tree Sombreros Blanko\",\r\n\"category\" : \"1\",\r\n\"manufacturer\" : \"1\",\r\n\"short_descr\" : \"Simple white tequila\",\r\n\"description\" : \"Wery simple white tequila\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/products/",
+					"raw": "http://127.0.0.1:8000/products/:id",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -130,11 +188,315 @@
 					"port": "8000",
 					"path": [
 						"products",
-						""
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
 					]
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/products/cat/:id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/products/cat/:id",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						"cat",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/products/man/:id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/products/man/:id",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						"man",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/category/:id/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"code\": \"TEQ-BL\",\r\n    \"name\": \"Tequila Blanco\",\r\n    \"description\": \"Very simple tequila\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/category/:id/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"category",
+						":id",
+						""
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/products/:id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"code\": \"TreeSOMB-Bl\",\r\n    \"name\": \"Tree Sombreros Blanko\",\r\n    \"short_descr\": \"Simple white tequila\",\r\n    \"description\": \"Very simple white tequila\",\r\n    \"category\": 2,\r\n    \"manufacturer\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/products/:id/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						":id",
+						""
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/manufacturers/:id/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"code\" : \"Jalsc_001\",\r\n\"name\" : \"Jalisko Agavita\",\r\n\"description\" : \"Very Old manufacturer\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/manufacturers/:id/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"manufacturers",
+						":id",
+						""
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/manufacturers/:id/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/manufacturers/:id/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"manufacturers",
+						":id",
+						""
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/products/:id/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/products/:id/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"products",
+						":id",
+						""
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/category/:id/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/category/:id/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"category",
+						":id",
+						""
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
 		}
 	]
 }
