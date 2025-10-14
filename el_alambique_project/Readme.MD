@@ -21,7 +21,7 @@
 ### 2. Клонування репозиторію
 
 ```bash
-git clone <URL-вашего-репозитория>
+git clone https://github.com/Pasha711/web_rest
 cd el_alambique_project
 ```
 
