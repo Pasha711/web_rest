@@ -10,7 +10,7 @@ from .serializers import CategorySerializer, ManufacturerSerializer, ProductSeri
 
 def handle_protected_error(instance_name):
     return Response(
-        {"error": f"Неможно видалить. Цей {instance_name} пов'язан з одним або декількома продуктами/заказами."},
+        {"error": f"Неможливо видалити. Цей {instance_name} пов'язан з одним з декількох продуктів/заказів."},
         status=status.HTTP_400_BAD_REQUEST
     )
 
@@ -71,7 +71,6 @@ class ManufacturerListCreateAPIView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
 class ManufacturerDetailAPIView(APIView):
     def get_object(self, pk):
         try:
@@ -99,7 +98,6 @@ class ManufacturerDetailAPIView(APIView):
             return Response(status=status.HTTP_204_NO_CONTENT)
         except ProtectedError:
             return handle_protected_error("виробника")
-
 
 
 class ProductListCreateAPIView(APIView):
@@ -148,7 +146,7 @@ class ProductListByCategoryAPIView(APIView):
     def get(self, request, category_id):
         products = Product.objects.filter(category__id=category_id)
         if not products.exists():
-             return Response({"detail": "Продукти у цій категорії не знайдені."}, status=status.HTTP_404_NOT_FOUND)
+             return Response({"detail": "Продукти в цій категорії не знайдені."}, status=status.HTTP_404_NOT_FOUND)
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
 
@@ -156,6 +154,6 @@ class ProductListByManufacturerAPIView(APIView):
     def get(self, request, manufacturer_id):
         products = Product.objects.filter(manufacturer__id=manufacturer_id)
         if not products.exists():
-            return Response({"detail": "Продукти цього виробика не знайдені."}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"detail": "Продукти цього виробника не знайдені."}, status=status.HTTP_404_NOT_FOUND)
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
